@@ -1,5 +1,69 @@
 <html>
+<head>
+    <link rel="stylesheet" href="/styles/style.css">
+</head>
 <body>
-    <div>{{some}}</div>
+
+<div class="header_title">Данные:</div>
+
+<table class="table" border="1">
+
+    <tr>
+        <th>Департамент</th>
+        <th>Сотрудники</th>
+    </tr>
+    {{#departments}}
+        <tr>
+            <td valign="top">{{name}}
+                <form class="hidden_form" action="/deleteDepartment" method="post">
+                    <input  type="hidden" name="department" value="{{id}}">
+                    <button class="hidden_form_button" type="submit" class="close">&#10008;</button>
+                </form>
+            </td>
+            <td>
+            <table>
+                {{#employees}}
+                    <tr>
+                        <td>{{fullName}}
+                            <form class="hidden_form" action="/deleteEmployee" method="post">
+                                <input  type="hidden" name="employee" value="{{id}}">
+                                <button class="hidden_form_button" type="submit" class="close">&#10008;</button>
+                            </form>
+                        </td>
+                    </tr>
+                {{/employees}}
+            </table>
+            </td>
+        </tr>
+    {{/departments}}
+</table>
+
+<div class="block_department">
+    <div class="block_title">Новый департамент</div>
+    <form method="post" action="/addDepartment">
+        <input type="text" class="block_input" name="name" required>
+        <button type="submit" class="form_button">Добавить</button>
+    </form>
+</div>
+
+<div class="block_employee">
+    <form method="post" action="/addEmployee">
+        <div class="block_1">
+            <div class="block_title">Новый сотрудник</div>
+            <input type="text" class="block_input_1" name="fullName" required>
+        </div>
+        <div class="block_2">
+            <div class="block_title">Департамент</div>
+
+            <select name="department" class="block_input_2" required>
+                {{#departments}}
+                    <option value="{{id}}">{{name}}</option>{{/departments}}
+            </select>
+
+            <button type="submit" class="form_button">Добавить</button>
+        </div>
+    </form>
+</div>
+
 </body>
 </html>
