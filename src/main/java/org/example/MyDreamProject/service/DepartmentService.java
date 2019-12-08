@@ -9,8 +9,11 @@ import java.util.Set;
 
 @Service
 public class DepartmentService {
-    @Autowired
-    private DepartmentRepo departmentRepo;
+    private final DepartmentRepo departmentRepo;
+
+    public DepartmentService(DepartmentRepo departmentRepo) {
+        this.departmentRepo = departmentRepo;
+    }
 
     public Iterable<Department> getDepartments() {
         return departmentRepo.findAll();

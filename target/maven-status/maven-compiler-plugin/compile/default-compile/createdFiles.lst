@@ -1,0 +1,8 @@
+org\example\MyDreamProject\repos\DepartmentRepo.class
+org\example\MyDreamProject\controller\MainController.class
+org\example\MyDreamProject\service\DepartmentService.class
+org\example\MyDreamProject\domain\Employee.class
+org\example\MyDreamProject\Application.class
+org\example\MyDreamProject\service\EmployeeService.class
+org\example\MyDreamProject\domain\Department.class
+org\example\MyDreamProject\repos\EmployeeRepo.class
